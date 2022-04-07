@@ -37,9 +37,9 @@ class CalculatorTest {
 
     @ParameterizedTest
     @DisplayName("Division with 0")
-    @CsvSource(value = {"0,0,NaN", "-1,0,-Infinity", "1,0,Infinity"})
-    void divide_with_zero(int a, int b, double expected) {
-        assertEquals(expected, calculator.divide(a, b));
+    @CsvSource(value = {"0,0", "-1,0", "1,0"})
+    void divide_with_zero(int a, int b) {
+        assertThrows(ArithmeticException.class, () -> calculator.divide(a, b));
     }
     @ParameterizedTest
     @DisplayName("First 100 prime numbers")
